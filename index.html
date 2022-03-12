@@ -62,6 +62,38 @@
         &lt;code&gt;
         コードをそのまま表示、ただしhtmlタグなどは特殊文字を使用
 
+    <h2>git github</h2>
+    はじめてgit push するまでの手順
+    github への登録
+    git init
+    該当ディレクトリで git add .
+
+    github への公開鍵の登録
+    鍵を入れるフォルダへの移動
+    cd ~/.ssh
+    鍵の生成
+    ssh-keygen -t rsa
+    質問に対してはEnter を叩く
+    github 上にて ssh keys を add する
+
+
+    push して
+    fatal: remote origin already exists.
+    と言われたら
+    git remote rm origin
+    でoriginを削除してから
+    git remote add origin main URL名など
+
+    user.name と user.email の設定がなければ
+    Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
+    Set your email address: git config --global user.email "MY_NAME@example.com"
+
+    Mac
+    pbcopy < ~/.ssh/id_rsa.pub
+
+    Windows
+    clip < ~/.ssh/id_rsa.pub
+
 
     <h2>Android Studio</h2>
     viewbinding を使用する
@@ -112,6 +144,13 @@
 
     記憶よりも記録を元に質問する。
 
+    <h2>学習が上手な人の特徴</h2>
+    わからなければとりあえず試行錯誤する。
+    手を動かしながら考える。
+    頭の中を整理するために書き出す。
+    情報を整理するために書き出す。
+    迷う暇があれば書いて考える。
+    
 
     
     <h2>理系科目の解答解説との向き合い方</h2>
