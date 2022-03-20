@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pythonについて</title>
+</head>
+<body>
+    <h1><a href = "index.html">授業について</a></h1>
+    <h2>Pythonについて</h2>
+    <pre>
+
+<code>
+# this is an unreadable line
+# Write down the results of the execution in the comments.
+
+print('Hello')#Hello!
+print("World")#World!
+print("Hello",end = '')#改行なしでprint
+print("World",end = "!!!!!\n")#\n は改行記号
+print("Hello'python'world")#Hello'python'world
+
+print(7+3)#10
+print(7-3)#4
+print(7*3)#21
+print(7/3)#2.3333333333333335
+print(7//3)#2
+print(7%3)#1
+
+for n in range(3):
+    print(n,end = " ")
+#0~2 まで出力
+
+print()
+
+for a in range(5,10):
+    print(a,end = " ")
+#5~9 まで出力。5≤a＜10を出力
+
+print()
+
+for a in range(1,7,2):
+    print(a,end = " ")
+#等差2で1≤a＜7で出力
+
+print()
+
+for i in range(1,10):
+    if(i%2==0):
+        print(i,end = " ")
+    elif(i%3==0):
+        print(i,end = " ")
+    else:
+        print("?",end =" ")
+
+int_list =[2,4,6,8,10]
+print(int_list)#[2, 4, 6, 8, 10]
+print(int_list[0]+int_list[3])#10
+</code>
+</pre>
+</body>
+</html>
