@@ -4,36 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>学習のメモ</title>
+    <title>授業について</title>
 </head>
 <body>
-    <h1>授業内容</h1>
+    <h1>授業について</h1>
+    <h2><a href = "programming.html">プログラミングの授業について</a></h2>
+    <h2><a href = "git_github.html">git と github</a></h2>
     <pre>
-    <h2>プログラミングの授業について</h2>
-    OSは Windows と mac のどちらでも扱っています。Linux にも対応します。
-    授業時に設定済みのLinuxノートPCを貸して授業することも可能です。
-    高校生までで扱うプログラミング言語の中心は python です。ただし javascript を扱う場合には html と css を扱うことがあります。
-    プログラミングを用いた数学的な取り組みをする場合は python を用いることが多いです。
-    使用するエディタは Visual Studio Code です。
-    意欲的な方には Android アプリ開発やそれに伴う言語 Kotlin を用いた授業もしています。
-    他にも C言語 Java を扱うことがあります。
-
-    複数のプログラミング言語を使用するのは難しいことはありません。
-    大学入試までに必要なレベルのアルゴリズムをそれぞれの細かい仕様を覚えるレベルではないからです。
-    一般的には難しいと思われがちなC言語であってもシンプルに利用できます。
-    むしろJavaなどのクラスやオブジェクトなどの概念が出てくる方が難しいかもしれません。
-
-    エンジニアを目指すレベルではないことに注意する必要があります。
-    基本的なアルゴリズムを用いて数学の問題も解きます。
-    繰り返し、条件分岐、配列やリスト、この３つを利用できるようになればほとんどのプログラムが書けます。
-    
-    
-    <h2>作業時間短縮のために重要なこと</h2>
-    ファイルやフォルダの整理
-    タイピング（タッチタイピング）で日本語入力200WPM以上、英語はWPM150以上
-    ショートカットキーの習得
 
     <h2>Python</h2>
+
+    <h2>アルゴリズム</h2>
+    n%k
+    を
+    (n-1)%k+1
+    にすることであまりを 0 ~ k - 1 から 1 ~ k へと変えることができる。
 
 
     <h2>mac</h2>
@@ -68,71 +53,21 @@
         &lt;code&gt;
         コードをそのまま表示、ただしhtmlタグなどは特殊文字を使用
 
-    
-    <h2>git</h2>
-    git init	リポジトリを新規作成
-    git clone	リポジトリをコピー
-    git gc	リポジトリを最適化
-    git pull	リモートリポジトリの変更点をローカルリポジトリにマージ
-    git push	ローカルリポジトリの変更点をリモートリポジトリにマージ
-    git add	コミット対象のファイルを登録
-    git commit	変更されたファイルをコミット（ローカルリポジトリに変更内容を入れ込む）
-    git reset	直前のコミットを取消
-    git revert	特定のコミットを取消
-    git tag	コミットにタグを付ける
-    git log	コミット履歴を表示
-    git status	作業ツリー内の差分ファイルを表示
-    git diff	ファイル内の差分箇所を表示
-    git mv	ファイルを移動／ファイル名を変更
-    git stash	作業ツリーの状態を一時的に保存
-    git branch	ブランチの作成／一覧表示
-    git checkout	処理対象ブランチの切り替え
-    git merge	別のブランチから変更点をマージ
-    git rebase	派生元ブランチに変更点をマージ
-
-    Homebrew >=2.2.0 (shallow or no git repository)
-    Homebrew/homebrew-core (no git repository)
-    などが出てきたら xcode をインストールしてみる
-
-    git --version をしても
-    xcrun: error: unable to load libxcrun
-    と出てきたら homebrew で git をインストール
-
-    <h2>github</h2>
-    はじめてgit push するまでの手順
-    github への登録
-    git init
-    該当ディレクトリで git add .
-
-    github への公開鍵の登録
-    鍵を入れるフォルダへの移動
-    cd ~/.ssh
-    鍵の生成
-    ssh-keygen -t rsa
-    質問に対してはEnter を叩く
-    github 上にて ssh keys を add する
-
-
-    push して
-    fatal: remote origin already exists.
-    と言われたら
-    git remote rm origin
-    でoriginを削除してから
-    git remote add origin main URL名など
-
-    user.name と user.email の設定がなければ
-    Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
-    Set your email address: git config --global user.email "MY_NAME@example.com"
-
-    Mac
-    pbcopy < ~/.ssh/id_rsa.pub
-
-    Windows
-    clip < ~/.ssh/id_rsa.pub
-
-
     <h2>Android Studio</h2>
-    viewbinding を使用する
+
+    <h3>Android Studio から github のリモートリポジトリを作る</h3>
+    token を使ってログインする
+    
+    <h3>viewbinding</h3>
+    viewbinding を使用する方法
+    以下を build.gradle(:app) に追加
+    android {
+        ...
+        viewBinding {
+            enabled = true
+        }
+    }
+
 
     
     <h2>Kotlin</h2>
@@ -144,12 +79,18 @@
         型を指定するラムダ式もある↓
         var f: (Int) -> Int = {x: Int -> x * x + 2 * x + 3 }
     </code>
+
+    <h2>学習のコツ・心構え</h2>
+    できる人はきっちりすることが当たり前だと思っている。
+    できない人はあいまいなことが当たり前だと思っている。
+    学力以前の問題ですでに差がついている。
+
     <h2>質問の仕方</h2>
     自分で調べて、自分で考えて、調べたことや考えたことを根拠に記述をしてそれを見せて
     「こう考えました」と質問するのが良い方法です。
     計算過程など消しゴムで消して「証拠隠滅」をしないようにしましょう。
     自分の間違いをさらけ出せる人はよく伸びる人です。
-    また自分で考えたことや自分が導いた結論を完結に言うことも大切です。
+    また自分で考えたことや自分が導いた結論を簡潔に言うことも大切です。
     
 
     <h3>改善の余地がある質問</h3>
@@ -214,8 +155,9 @@
 
 
     <h2>成績が上がりにくい人の特徴</h2>
-    わからないときに他の本やネットなどいろんなものに手を出す。
-    わかるように自分のレベルを上げる方向で考えるのが良い。
+    計算過程や思考過程で書いたものを消しゴムで消してしまう。
+
+    わからないものが出てきた時に、理解するために調べるのではなく、楽してわかる方法を探す。
 
     いろんな問題集に手を出して一つのものを完璧にしようとしない。
 
@@ -254,6 +196,9 @@
     ページ数の多い教材については１ページにまとめることがある。
     その際に「次のページへ」という表現は編集で削除することがある。
 
+    <h2>オンラインミーティングでのコミュニケーション能力</h2>
+    オンラインになると話を聞かなくなる人が半分以上。後で意見を求めても聞いていないので答えられない。
+    解決方法としては短いスパンで話題を区切る。興味の引くトピックにする。
 
     </pre>
     
