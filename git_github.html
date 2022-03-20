@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Git_github</title>
+</head>
+<body>
+    <h1>Git と github</h1>
+    <pre>
+        <h2>github</h2>
+        U 追跡対象外　ファイル名の右側に表示されている場合はまだ git の管理外
+
+        はじめてgit push するまでの手順
+        github への登録
+        git init
+        該当ディレクトリで git add .
+    
+        github への公開鍵の登録
+        鍵を入れるフォルダへの移動
+        cd ~/.ssh
+        鍵の生成
+        ssh-keygen -t rsa
+        質問に対してはEnter を叩く
+        github 上にて ssh keys を add する
+    
+    
+        push して
+        fatal: remote origin already exists.
+        と言われたら
+        git remote rm origin
+        でoriginを削除してから
+        git remote add origin main URL名など
+    
+        user.name と user.email の設定がなければ
+        Set your username: git config --global user.name "FIRST_NAME LAST_NAME"
+        Set your email address: git config --global user.email "MY_NAME@example.com"
+    
+        Mac
+        pbcopy < ~/.ssh/id_rsa.pub
+    
+        Windows
+        clip < ~/.ssh/id_rsa.pub
+
+        
+        <h2>Git</h2>
+        git init	リポジトリを新規作成
+        git clone	リポジトリをコピー
+        git gc	リポジトリを最適化
+        git pull	リモートリポジトリの変更点をローカルリポジトリにマージ
+        git push	ローカルリポジトリの変更点をリモートリポジトリにマージ
+        git add	コミット対象のファイルを登録
+        git commit	変更されたファイルをコミット（ローカルリポジトリに変更内容を入れ込む）
+        git reset	直前のコミットを取消
+        git revert	特定のコミットを取消
+        git tag	コミットにタグを付ける
+        git log	コミット履歴を表示
+        git status	作業ツリー内の差分ファイルを表示
+        git diff	ファイル内の差分箇所を表示
+        git mv	ファイルを移動／ファイル名を変更
+        git stash	作業ツリーの状態を一時的に保存
+        git branch	ブランチの作成／一覧表示
+        git checkout	処理対象ブランチの切り替え
+        git merge	別のブランチから変更点をマージ
+        git rebase	派生元ブランチに変更点をマージ
+    
+        Homebrew >=2.2.0 (shallow or no git repository)
+        Homebrew/homebrew-core (no git repository)
+        などが出てきたら xcode をインストールしてみる
+    
+        git --version をしても
+        xcrun: error: unable to load libxcrun
+        と出てきたら homebrew で git をインストール
+
+    </pre>
+    
+</body>
+</html>
