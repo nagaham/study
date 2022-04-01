@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kotlin について</title>
+</head>
+<body>
+    <h1><a href = "index.html">TOP</a></h1>
+<pre>
+    <h3>４つの数字の並びを当てる</h3>
+    <code>
+import java.lang.Math.random
+import kotlin.math.*
+
+
+fun main(){
+    //それぞれの文字が何個あるのかをカウントする
+    var countofcorrectans = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0)
+    var countofyournumber = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0)
+    var numofac = 0
+    var numofcorrect = 0
+
+    //初期設定で自分の答えを ____ にする
+    var yourans = mutableListOf<String>("_","_","_","_")
+    val randnumber = ((10000*random()).toInt()).toString().padStart(4,'0')
+
+    for(n in 0 .. 9) countofcorrectans[n] = randnumber.count{ it == (n+48).toChar() }
+
+    println("4つの数字を入力してくさい。　例その1 : 9876   例その2 : 0123")
+    var inputnumber = readLine()!!
+
+    //正解するまで繰り返す
+    while(inputnumber != randnumber) {
+        for(n in 0 .. 9) countofyournumber[n] = inputnumber.count{ it == (n+48).toChar() }
+        for(n in 0 .. 9){
+            if(min(countofyournumber[n],countofcorrectans[n]) != 0) println("数字の $n は ${min(countofyournumber[n],countofcorrectans[n])} 個合っています")
+            numofcorrect += min(countofyournumber[n], countofcorrectans[n])
+        }
+
+        for (i in 0..3) {
+            if (inputnumber[i] == randnumber[i]) {
+                yourans[i] = randnumber[i].toString()
+                numofac++
+            }
+        }
+        println("正解の数は $numofac 個。数字が合っているのは $numofcorrect 個" )
+        println(yourans.joinToString(separator = ""))
+        println()
+        println("入力してください")
+        numofac = 0
+        numofcorrect = 0
+        inputnumber = readLine()!!
+    }
+    println("Great!!!")
+}
+    </code>
+
+</pre>
+
+    
+</body>
+</html>
