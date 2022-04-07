@@ -29,7 +29,7 @@ print(7//3)#2
 print(7%3)#1
 print(2**3)# 8 指数
 print(math.ceil(12.3))#13 切り上げ
-print(math.cloor(12.3))#12 切り捨て
+print(math.floor(12.3))#12 切り捨て
 
 for n in range(3):
     print(n,end = " ")
@@ -39,13 +39,13 @@ print()
 
 for a in range(5,10):
     print(a,end = " ")
-#5~9 まで出力。5≤a＜10を出力
+#5~9 まで出力。5≤a&lt;10を出力
 
 print()
 
 for a in range(1,7,2):
     print(a,end = " ")
-#等差2で1≤a＜7で出力
+#等差2で1≤a&lt;7で出力
 
 print()
 
@@ -77,11 +77,13 @@ for i in range(1, 40 + 1):
         print(i, "^^")
     elif 30 <= i <= 39:
         print(i, "^^")
-
+</code>
+<h3>便利なcollection</h3>
+set 要素の順番に関係なく重複なしにする
+len 文字列の長さを返す
 <h3>注意点</h3>
 インクリメント・デクリメント演算子は python に存在しない。
 余裕があればコーディング規約に従って記述した方がよい。
-</code>
 </pre>
 </body>
 </html>
