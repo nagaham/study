@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アルゴリズム</title>
+</head>
+<body>
+    <h1><a href = "index.html">TOP</a></h1>
+<pre>
+<h2>アルゴリズムについて</h2>
+<h3>あまりをずらす方法</h3>
+n%k を (n-1)%k+1
+にすることであまりを 0 ~ k - 1 から 1 ~ k へと変えることができる。
+
+<h3>切り上げの方法</h3>
+l&lt;k
+
+n=mk ならば n//k=m 
+n=mk+l ならば n//k=m
+n=mk ならば n-1//k=m-1 
+n=mk+l ならば n-1//k=m
+n=mk ならば (n+k)//k=m+1
+n=mk+l ならば (n+k)//k=m+1
+n=mk ならば (n-k)//k=m-1
+n=mk+l ならば (n-k)//k=m-1
+n=mk ならば (n+k-1)//k=m
+n=mk+l ならば (n+k-1)//k=m+1
+</pre>
+    
+</body>
+</html>

@@ -9,6 +9,15 @@
 <body>
     <h1><a href = "index.html">TOP</a></h1>
 <pre>
+    <h3>関数とラムダ式の利用</h3>
+    <code>
+        fun f(x: Int):Int{ return x * x + 2 * x + 1}
+        と同じものをラムダ式で定義することもできる↓
+        var f = {x: Int -&gt; x * x + 2 * x + 3 }
+        型を指定するラムダ式もある↓
+        var f: (Int) -&gt; Int = {x: Int -&gt; x * x + 2 * x + 3 }
+    </code>
+
     <h3>４つの数字の並びを当てる</h3>
     <code>
 
@@ -17,50 +26,66 @@
 
     </code>
     <code>
-import java.lang.Math.random
-import kotlin.math.*
-
-
-fun main(){
-    //それぞれの文字が何個あるのかをカウントする
-    var countofcorrectans = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0)
-    var countofyournumber = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0)
-    var numofac = 0
-    var numofcorrect = 0
-
-    //初期設定で自分の答えを ____ にする
-    var yourans = mutableListOf<String>("_","_","_","_")
-    val randnumber = ((10000*random()).toInt()).toString().padStart(4,'0')
-
-    for(n in 0 .. 9) countofcorrectans[n] = randnumber.count{ it == (n+48).toChar() }
-
-    println("4つの数字を入力してくさい。　例その1 : 9876   例その2 : 0123")
-    var inputnumber = readLine()!!
-
-    //正解するまで繰り返す
-    while(inputnumber != randnumber) {
-        for(n in 0 .. 9) countofyournumber[n] = inputnumber.count{ it == (n+48).toChar() }
-        for(n in 0 .. 9){
-            if(min(countofyournumber[n],countofcorrectans[n]) != 0) println("数字の $n は ${min(countofyournumber[n],countofcorrectans[n])} 個合っています")
-            numofcorrect += min(countofyournumber[n], countofcorrectans[n])
-        }
-
-        for (i in 0..3) {
-            if (inputnumber[i] == randnumber[i]) {
-                yourans[i] = randnumber[i].toString()
-                numofac++
+        import java.lang.Math.random
+        import kotlin.math.*
+        /*
+        ヒントの種類
+        １．　入力する桁数
+        ２．　文字の正解数を表示
+        ３．　場所と文字の正解数を表示
+        ４．　正解したものを部分的に表示
+        ５．　使用する文字の種類の数（ゾロ目かどうか）
+         */
+        fun main(){
+            //それぞれの文字が何個あるのかをカウントする
+            var countofcorrectans = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0) //0~9までの数字について正解を収納
+            var countofyournumber = mutableListOf<Int>(0,0,0,0,0,0,0,0,0,0) //0~9までの数字について自分の答えを収納
+            var numofac = 0
+            var numofcorrect = 0 //文字列の中で正解の数字が何個あるか
+            var numoftrials = 1 //挑戦回数をカウントする変数
+        
+            //初期設定で自分の答えを ____ にする
+            var yourans = mutableListOf<String>("_","_","_","_")
+            val randnumber = ((10000*random()).toInt()).toString().padStart(4,'0')
+        
+            for(n in 0 .. 9) countofcorrectans[n] = randnumber.count{ it == (n+48).toChar() }
+        
+            println("4つの数字を入力してくさい。　例その1 : 9876   例その2 : 0123")
+            var inputnumber = readLine()!!
+        
+            //正解するまで繰り返す
+            while(inputnumber != randnumber) {
+                if(inputnumber.length < 4 ){
+                    inputnumber = "____"
+                    println("入力が 4文字未満なので判定できませんでした😆")
+                }
+                else if(inputnumber.length > 4){
+                    inputnumber = "____"
+                    println("入力が 4文字よりも多かったので判定できませんでした😄")
+                }
+                println("$numoftrials 回目のトライアルが終わりました")
+                numoftrials++
+                for(n in 0 .. 9) countofyournumber[n] = inputnumber.count{ it == (n+48).toChar() }
+                for(n in 0 .. 9){
+                    if(min(countofyournumber[n],countofcorrectans[n]) != 0) println("数字の $n は ${min(countofyournumber[n],countofcorrectans[n])} 個合っています")
+                    numofcorrect += min(countofyournumber[n], countofcorrectans[n])
+                }
+        
+                for (i in 0..3) {
+                    if (inputnumber[i] == randnumber[i]) {
+                        yourans[i] = randnumber[i].toString()
+                        numofac++
+                    }
+                }
+                println("場所も数字も合っているのは $numofac 個。\n場所が違うものも含めて数字が合っているのが$numofcorrect 個\n" )
+        //        println(yourans.joinToString(separator = ""))
+                println("入力してください")
+                numofac = 0
+                numofcorrect = 0
+                inputnumber = readLine()!!
             }
+            println("Great!!!\n" + "$numoftrials 回目の挑戦で成功しました！")
         }
-        println("正解の数は $numofac 個。数字が合っているのは $numofcorrect 個" )
-        println(yourans.joinToString(separator = ""))
-        println()
-        println("入力してください")
-        numofac = 0
-        numofcorrect = 0
-        inputnumber = readLine()!!
-    }
-    println("Great!!!")
-}
     </code>
 
 </pre>
