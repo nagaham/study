@@ -40,6 +40,58 @@
 
         }
     </code>
+
+    <h3>spinner を使うとき</h3>
+    xmlファイルにspinnerを配置する。
+    resフォルダにspinnerで表示したい文字列を収納する。
+    activityでspinnerを操作、値を獲得する。
+    <code>
+        <Spinner
+        android:id="@+id/spinner01"
+        android:layout_width="88dp"
+        android:layout_height="217dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:entries="@array/codenumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    </code>
+    <code>
+        <?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="codenumber">
+        <item></item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+    </string-array>
+</resources>
+    </code>
+    <code>
+        binding.spinner01.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                val spinner = parent as? Spinner
+                val item = spinner?.selectedItem as? String
+                item?.let {
+                    if (it.isNotEmpty()) binding.textView01.text = it
+                }
+            }
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+    </code>
+    
 </pre>
     
 </body>
